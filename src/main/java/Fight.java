@@ -4,6 +4,11 @@
  */
 
 //ADD IMAGE!!!
+import characters.Human;
+import characters.Player;
+import characters.ShaoKahn;
+import characters.fabrics.EnemyFabric;
+
 import java.util.ArrayList;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -124,10 +129,10 @@ public class Fight {
 
             if (enemy instanceof ShaoKahn) {
                 action.AddItems(38, 23, 8, items);
-                action.AddPointsBoss(((Human) human), action.getEnemyes());
+                action.AddPointsBoss(((Human) human), action.getEnemies());
             } else {
                 action.AddItems(25, 15, 5, items);
-                action.AddPoints(((Human) human), action.getEnemyes());
+                action.AddPoints(((Human) human), action.getEnemies());
             }
         } else {
             label.setText(enemy.getName() + " win");
@@ -145,7 +150,7 @@ public class Fight {
         String text = "Победа не на вашей стороне";
         if (human.getHealth() > 0) {
             human.setWin();
-            action.AddPoints(human, action.getEnemyes());
+            action.AddPoints(human, action.getEnemies());
             text = "Победа на вашей стороне";
         }
         boolean top = false;

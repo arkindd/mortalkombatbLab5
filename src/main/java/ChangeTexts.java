@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
+import characters.Human;
+import characters.Player;
+
 import javax.swing.JLabel;
 import javax.swing.JProgressBar;
 import javax.swing.JRadioButton;
@@ -15,10 +18,10 @@ public class ChangeTexts {
 
 
 
-    public void NewRoundTexts(Player human, Player enemy, JProgressBar pr1,
-            JProgressBar pr2, JLabel label, JLabel label2, JLabel label3,
-            JLabel label4, JLabel label5, JLabel label6, JLabel label7, JLabel label8, JLabel label9,
-            int i, Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3) {
+    public void NewRoundTexts(Player human, Player enemy, JProgressBar pr1, JProgressBar pr2,
+                              JLabel label, JLabel label2, JLabel label3, JLabel label4,
+                              JLabel label5, JLabel label6, JLabel label7, JLabel label8, JLabel label9,
+                              int i, Items[] items, JRadioButton rb1, JRadioButton rb2, JRadioButton rb3) {
         label.setText(Integer.toString(((Human) human).getPoints()));
         label2.setText(Integer.toString(((Human) human).getExperience()) + "/" + ((Human) human).getNextExperience());
         label3.setText(Integer.toString(human.getLevel()) + " level");

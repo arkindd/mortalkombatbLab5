@@ -1,10 +1,15 @@
-/*
+package characters.fabrics;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 
-import javax.swing.JLabel;
-import javax.swing.JProgressBar;
+import characters.Player;
+import characters.fabrics.BarakaFabric;
+import characters.fabrics.EnemyFabricInterface;
+import characters.fabrics.LiuKangFabric;
+import characters.fabrics.ShaoKahnFabric;
+import characters.fabrics.SonyaBladeFabric;
+import characters.fabrics.SubZeroFabric;
 
 /**
  *

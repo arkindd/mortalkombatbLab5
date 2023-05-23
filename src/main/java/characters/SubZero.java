@@ -1,4 +1,4 @@
-/*
+package characters;/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -7,14 +7,14 @@
  *
  * @author Мария
  */
-public class SonyaBlade extends Player{
+public class SubZero extends Player {
     
-    public SonyaBlade (int level, int health, int  damage, int attack){
+    public SubZero(int level, int health, int damage , int attack){
         super (level, health, damage, attack);
     }
     
     @Override
     public String getName(){
-        return "Sonya Blade";
+        return "Sub-Zero";
     }
 }

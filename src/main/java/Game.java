@@ -13,6 +13,9 @@ import javax.swing.JProgressBar;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+
+import characters.Human;
+import characters.Player;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -23,14 +26,15 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  */
 public class Game {
 
+    private int numberOfLocations;
     CharacterAction action = new CharacterAction();
     ChangeTexts change = new ChangeTexts();
     Fight fight = new Fight();
     private ArrayList<Result> results = new ArrayList<>();
 
     public Player NewEnemy(JLabel L1, JLabel L2,
-            JLabel L3, JLabel L4, JProgressBar pr2) {
-        action.setEnemyes();
+                           JLabel L3, JLabel L4, JProgressBar pr2) {
+        action.setEnemies();
         Player enemy = action.ChooseEnemy(L1, L2, L3, L4);
         action.HP(enemy, pr2);
         pr2.setMaximum(enemy.getMaxHealth());
@@ -66,7 +70,7 @@ public class Game {
                 r2.createCell(2).setCellValue(results.get(i).getPoints());
             }
         }
-        File f = new File("C:\\Users\\Мария\\Desktop\\Results.xlsx");
+        File f = new File("src/main/resources/Results.xlsx");
         book.write(new FileOutputStream(f));
         book.close();
     }
@@ -76,7 +80,7 @@ public class Game {
     }
 
     public void ReadFromExcel() throws IOException{
-        XSSFWorkbook book = new XSSFWorkbook("C:\\Users\\Мария\\Desktop\\Results.xlsx");
+        XSSFWorkbook book = new XSSFWorkbook("src/main/resources/Results.xlsx");
         XSSFSheet sh = book.getSheetAt(0);
         for (int i=1; i<=sh.getLastRowNum();i++) {
             results.add(new Result(sh.getRow(i).getCell(1).getStringCellValue(),(int)sh.getRow(i).getCell(2).getNumericCellValue()));
@@ -91,5 +95,13 @@ public class Game {
                 model.setValueAt(results.get(i).getPoints(), i, 1);
             }
         }
+    }
+
+    public int getNumberOfLocations() {
+        return numberOfLocations;
+    }
+
+    public void setNumberOfLocations(int numberOfLocations) {
+        this.numberOfLocations = numberOfLocations;
     }
 }
