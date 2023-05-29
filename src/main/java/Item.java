@@ -2,12 +2,13 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
+ *
  * @author Мария
  */
 @Data
 @AllArgsConstructor
-public class Result {
-
+public class Item {
+    
     private String name;
-    private int points;
+    private int count;
 }

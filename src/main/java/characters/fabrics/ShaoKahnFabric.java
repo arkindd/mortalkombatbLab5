@@ -1,26 +1,23 @@
-package characters.fabrics;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package characters.fabrics;
 
 import characters.Player;
 import characters.ShaoKahn;
 
+import javax.swing.*;
+
 /**
- *
  * @author Мария
  */
 public class ShaoKahnFabric implements EnemyFabricInterface {
-    
+
     @Override
-    public Player create(int i) {
-        Player enemy;
-        if(i==0){
-            enemy = new ShaoKahn(3, 100, 30, 1);
-        }
-        else{
-           enemy = new ShaoKahn(3, 145, 44, 1); 
-        }
+    public Player create(int playerLevel) {
+        Player enemy = new ShaoKahn(playerLevel + 2,
+                100 + playerLevel * 8,
+                25 + playerLevel * 4,
+                1,
+                new ImageIcon("src/main/resources/images/shao kahn.png"));
+        enemy.setBoss(true);
         return enemy;
     }
 }

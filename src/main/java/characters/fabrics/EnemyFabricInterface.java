@@ -1,7 +1,4 @@
-package characters.fabrics;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
+package characters.fabrics;
 
 import characters.Player;
 
@@ -10,5 +7,5 @@ import characters.Player;
  * @author Мария
  */
 public interface EnemyFabricInterface {
-    public Player create(int i);
+    Player create(int i);
 }

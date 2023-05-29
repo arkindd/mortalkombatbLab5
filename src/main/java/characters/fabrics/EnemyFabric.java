@@ -1,43 +1,40 @@
-package characters.fabrics;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+package characters.fabrics;
 
 import characters.Player;
-import characters.fabrics.BarakaFabric;
-import characters.fabrics.EnemyFabricInterface;
-import characters.fabrics.LiuKangFabric;
-import characters.fabrics.ShaoKahnFabric;
-import characters.fabrics.SonyaBladeFabric;
-import characters.fabrics.SubZeroFabric;
 
 /**
- *
  * @author Мария
  */
 public class EnemyFabric {
 
-    public Player create(int i, int j) {
+    /**
+     * Метод, генерирующий случайного врага, характеристики которого зависят от уровня игрока
+     * @param playerLevel - уровень игрока
+     * @return объект Player, являющийся врагом
+     */
+    public static Player createEnemy(int playerLevel) {
         EnemyFabricInterface fabric = null;
-
+        int i = (int) (Math.random() * 3);
         switch (i) {
-            case 0:
-                fabric = new BarakaFabric();
-                break;
-            case 1:
-                fabric = new SubZeroFabric();
-                break;
-            case 2:
-                fabric = new LiuKangFabric();
-                break;
-            case 3:
-                fabric = new SonyaBladeFabric();
-                break;
-            case 4:
-                fabric = new ShaoKahnFabric();
-                break;
+            case 0 -> fabric = new BarakaFabric();
+            case 1 -> fabric = new SubZeroFabric();
+            case 2 -> fabric = new LiuKangFabric();
         }
-        Player enemy = fabric.create(j);
-        return enemy;
+        return fabric.create(playerLevel);
+    }
+
+    /**
+     * Метод, генерирующий случайного босса, характеристики которого зависят от уровня игрока
+     * @param playerLevel - уровень игрока
+     * @return объект Player, являющийся врагом
+     */
+    public static Player createBoss(int playerLevel) {
+        EnemyFabricInterface fabric = null;
+        int i = (int) (Math.random() * 2);
+        switch (i) {
+            case 0 -> fabric = new ShaoKahnFabric();
+            case 1 -> fabric = new SonyaBladeFabric();
+        }
+        return fabric.create(playerLevel);
     }
 }

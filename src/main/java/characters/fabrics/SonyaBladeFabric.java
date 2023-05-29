@@ -1,23 +1,23 @@
-package characters.fabrics;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
+package characters.fabrics;
 
 import characters.Player;
 import characters.SonyaBlade;
 
+import javax.swing.*;
+
 /**
- *
  * @author Мария
  */
 public class SonyaBladeFabric implements EnemyFabricInterface {
 
     @Override
-    public Player create(int i) {
-        Player enemy;
-        enemy = new SonyaBlade(1, 80, 16, 1);
+    public Player create(int playerLevel) {
+        Player enemy = new SonyaBlade(playerLevel + 1,
+                80 + playerLevel * 5,
+                16 + playerLevel * 2,
+                1,
+                new ImageIcon("src/main/resources/images/sonya blade.png"));
+        enemy.setBoss(true);
         return enemy;
     }
-
 }

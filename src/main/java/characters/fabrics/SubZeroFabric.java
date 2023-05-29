@@ -1,23 +1,23 @@
-package characters.fabrics;/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
+package characters.fabrics;
 
 import characters.Player;
 import characters.SubZero;
 
+import javax.swing.*;
+
 /**
- *
  * @author Мария
  */
 public class SubZeroFabric implements EnemyFabricInterface {
 
     @Override
-    public Player create(int i) {
+    public Player create(int playerLevel) {
         Player enemy;
-        enemy = new SubZero(1, 60, 16, 1);
+        enemy = new SubZero(playerLevel + 1,
+                60 + playerLevel * 5,
+                20 + playerLevel * 2,
+                1,
+                new ImageIcon("src/main/resources/images/subzero.png"));
         return enemy;
     }
-
 }
