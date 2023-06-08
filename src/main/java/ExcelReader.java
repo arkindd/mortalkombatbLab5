@@ -40,7 +40,7 @@ public class ExcelReader {
                 XSSFRow r2 = sheet.createRow(i + 1);
                 r2.createCell(0).setCellValue(i + 1);
                 r2.createCell(1).setCellValue(results.get(i).getName());
-                r2.createCell(2).setCellValue(results.get(i).getPoints());
+                 r2.createCell(2).setCellValue(results.get(i).getPoints());
             }
         }
         File f = new File("./Results.xlsx");
