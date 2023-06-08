@@ -43,7 +43,7 @@ public class ExcelReader {
                 r2.createCell(2).setCellValue(results.get(i).getPoints());
             }
         }
-        File f = new File("src/main/resources/Results.xlsx");
+        File f = new File("./Results.xlsx");
         book.write(new FileOutputStream(f));
         book.close();
     }
