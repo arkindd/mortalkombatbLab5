@@ -16,7 +16,7 @@ public class ShaoKahnFabric implements EnemyFabricInterface {
                 100 + playerLevel * 8,
                 25 + playerLevel * 4,
                 1,
-                new ImageIcon("src/main/resources/images/shao kahn.png"));
+                new ImageIcon(getClass().getResource("/images/shao kahn.png")));
         enemy.setBoss(true);
         return enemy;
     }

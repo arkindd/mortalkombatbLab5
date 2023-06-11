@@ -16,7 +16,7 @@ public class SonyaBladeFabric implements EnemyFabricInterface {
                 80 + playerLevel * 5,
                 16 + playerLevel * 2,
                 1,
-                new ImageIcon("src/main/resources/images/sonya blade.png"));
+                new ImageIcon(getClass().getResource("/images/sonya blade.png")));
         enemy.setBoss(true);
         return enemy;
     }

@@ -3,7 +3,9 @@ import characters.Player;
 import characters.fabrics.EnemyFabric;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.logging.Level;
@@ -35,7 +37,9 @@ public class Game {
      */
     public Game(int numberOfLocations){
         this.numberOfLocations = numberOfLocations;
-        this.human = new Human(0, 80, 18, 1, new ImageIcon("src/main/resources/images/kitana.png"));
+        URL iconUrl = this.getClass().getResource("/images/kitana.png");
+        Toolkit tk = Toolkit.getDefaultToolkit();
+        this.human = new Human(0, 80, 18, 1, new ImageIcon(tk.getImage(iconUrl)));
         this.enemies = enemiesInThisLocation(human.getLevel());
         this.fight.enemyMoves.add((int) (Math.random() * 2));
         this.fight.enemyMoves.add((int) (Math.random() * 2));

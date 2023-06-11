@@ -5,6 +5,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ExcelReader {
@@ -54,7 +55,8 @@ public class ExcelReader {
      * @throws IOException при невозможности найти excel файл
      */
     public static ArrayList<Result> readFromExcel() throws IOException {
-        try (XSSFWorkbook book = new XSSFWorkbook("src/main/resources/Results.xlsx")) {
+        InputStream in = ExcelReader.class.getResourceAsStream("Results.xlsx");
+        try (XSSFWorkbook book = new XSSFWorkbook(in)) {
             XSSFSheet sheet = book.getSheetAt(0);
             ArrayList<Result> results = new ArrayList<>();
             for (int i = 1; i <= sheet.getLastRowNum(); i++) {

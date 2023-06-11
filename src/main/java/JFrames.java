@@ -864,7 +864,7 @@ public class JFrames extends javax.swing.JFrame {
         jButtonShowRecords.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         jButtonShowRecords.addActionListener(this::jButtonOpenTable);
 
-        jLabelGameImage.setIcon(new javax.swing.ImageIcon("src/main/resources/images/mk.png")); // NOI18N
+        jLabelGameImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("images/mk.png"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanelStart);
         jPanelStart.setLayout(jPanel1Layout);
@@ -933,26 +933,25 @@ public class JFrames extends javax.swing.JFrame {
      * Создает новый объект игры с выбранным кол-вом локаций
      */
     private void jButtonChoseLocationActionPerformed(java.awt.event.ActionEvent evt) {
-        int countOfLocations;
+        int countOfLocations = Integer.parseInt(jTextFieldCountLocation.getText());
         try {
-            countOfLocations = Integer.parseInt(jTextFieldCountLocation.getText());
             if (countOfLocations <= 0 || countOfLocations > 10) {
                 throw new Exception();
             }
-            game = new Game(countOfLocations);
-            jDialogChoseLocation.dispose();
-
-            humanAllInfoUpdate();
-            enemyAllInfoUpdate();
-            itemsUpdate();
-            jTurnNow.setText("Your turn");
-            jResult.setText("");
-            jGamingFrame.setVisible(rootPaneCheckingEnabled);
-            jGamingFrame.setSize(1100, 700);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Ошибка ввода локаций", "Oшибка", JOptionPane.ERROR_MESSAGE);
             jTextFieldCountLocation.setText("");
         }
+        game = new Game(countOfLocations);
+        jDialogChoseLocation.dispose();
+
+        humanAllInfoUpdate();
+        enemyAllInfoUpdate();
+        itemsUpdate();
+        jTurnNow.setText("Your turn");
+        jResult.setText("");
+        jGamingFrame.setVisible(rootPaneCheckingEnabled);
+        jGamingFrame.setSize(1100, 700);
     }
 
     /**

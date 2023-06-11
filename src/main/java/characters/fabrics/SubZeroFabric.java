@@ -17,7 +17,7 @@ public class SubZeroFabric implements EnemyFabricInterface {
                 60 + playerLevel * 5,
                 20 + playerLevel * 2,
                 1,
-                new ImageIcon("src/main/resources/images/subzero.png"));
+                new ImageIcon(getClass().getResource("/images/subzero.png")));
         return enemy;
     }
 }
